@@ -11,6 +11,7 @@ import { OrdenesService } from '../../../../_services/ordenes.service';
 })
 export class OrdenPendientesComponent {
   ordenesPendientes: any;
+  ordenSeleccionada: any=null;
 
   parcela:any;
   tarea:any;
@@ -19,6 +20,11 @@ export class OrdenPendientesComponent {
   constructor(private ordenesService: OrdenesService) {
       this.ordenesService.getOrdenesPendientes()
         .subscribe(result => this.ordenesPendientes = result);
+  }
+
+  seleccionarOrden(orden: any) {
+    console.log(orden);
+    this.ordenSeleccionada = orden;
   }
 
 }
